@@ -1,0 +1,28 @@
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+#flexContainer, #trackerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#trackerContainer {
+  list-style-type: none;
+}
+
+#trackerContainer li {
+  margin: 2px;
+  border: 1px solid tomato;
+  width: 16px;
+  padding: 1px;
+  text-align: center;
+}
+
+.currentPerson {
+  background-color: tomato;
+  color: white;
+}
+
+.layout {
+  border: 1px solid gray;
+  padding: 8px;
+}

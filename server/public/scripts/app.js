@@ -28,8 +28,8 @@ $(document).ready(function(){
   function showPerson() {
     // console.log('people data ', people);
     var person = people[currentPerson];
-    console.log(person);
 
+    // populate DOM with person's data
     $("#name").text(person.name);
     $("#github").attr("href", "https://github.com/" + person.githubUserName);
     $("#github").text(person.githubUserName);
@@ -41,12 +41,13 @@ $(document).ready(function(){
   }
 
   function createTracker() {
-    // for(var i = 0; i < people.length; i++)
-    console.log('create tracker');
+    console.log('creating tracker');
     people.forEach(function(person, i) {
       var index = i + 1;
       $("#trackerContainer").append('<li>' + index + '</li>');
-      // using data
+      // using data would look like this
+      // this would store the person's index on this DOM element
+      // we could then pull the value off later by selecting the element
       // $("#trackerContainer").children().last().data("id", i);
     });
     updateTracker();
@@ -67,6 +68,7 @@ $(document).ready(function(){
   function nextPerson() {
     console.log('clicked next');
     $("#peopleContainer").fadeOut(500, function() {
+      // wait until the animation finishes to show the next person
       currentPerson++;
       if(currentPerson >= people.length) {
         currentPerson = 0;
@@ -80,6 +82,7 @@ $(document).ready(function(){
   function prevPerson() {
     console.log('clicked previous');
     $("#peopleContainer").fadeOut(500, function() {
+      // wait until the animation finishes to show the previous person
       currentPerson--;
       if(currentPerson < 0) {
         currentPerson = people.length - 1;
